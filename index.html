@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Before Your MVP — Fireside Chat | Health-Vision.AI</title>
+<meta name="description" content="Right-Sizing Governance for AI-Native Founders and Investor Diligence. A fireside chat with Brian M. Green of Health-Vision.AI: the conversation guide, founder four moves, investor diligence checklist, and FAQ." />
+<meta name="robots" content="index,follow" />
+<meta property="og:title" content="Before Your MVP: Right-Sizing Governance for AI-Native Founders and Investor Diligence" />
+<meta property="og:description" content="The session companion — conversation guide, founder four moves, investor diligence checklist, and FAQ." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --indigo:#221C44;
+    --indigo-2:#2C2556;
+    --purple:#433A86;
+    --peri:#8B8DD6;
+    --peri-light:#B7B5E4;
+    --lav:#EDECF7;
+    --lav-2:#F4F3FA;
+    --paper:#FBFBFE;
+    --ink:#1B1B24;
+    --mute:#6B6685;
+    --line:#E2E0F0;
+    --green:#1F7A54;
+    --green-bg:#E9F4EE;
+    --red:#B23A48;
+    --red-bg:#FBECEE;
+    --amber:#8A5A00;
+    --amber-bg:#F6EEDD;
+    --sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --wrap:760px;
+    --wide:1060px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  a{color:var(--purple)}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+  .wide{max-width:var(--wide);margin:0 auto;padding:0 20px}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--indigo);color:#fff;padding:46px 0 40px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
+    background:linear-gradient(90deg,var(--peri),var(--peri-light),var(--peri))}
+  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--peri-light);margin:0 0 18px}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,6.4vw,3.1rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 10px}
+  .hero .lede{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,4.2vw,2rem);line-height:1.18;color:var(--peri-light);margin:0 0 26px;max-width:28ch}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 10px;font-size:.9rem}
+  .pill{border:1px solid rgba(183,181,228,.4);color:#E7E6F6;border-radius:999px;padding:5px 13px;white-space:nowrap}
+  .pill strong{color:#fff;font-weight:600}
+  .host{margin-top:22px;font-size:.95rem;color:#CFCBEA}
+  .host b{color:#fff;font-weight:600}
+
+  /* ---------- sticky section nav ---------- */
+  nav.jump{position:sticky;top:0;z-index:20;background:rgba(251,251,254,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav.jump .inner{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:9px 20px;max-width:var(--wide);margin:0 auto}
+  nav.jump .inner::-webkit-scrollbar{display:none}
+  nav.jump a{flex:0 0 auto;font-size:.86rem;font-weight:500;color:var(--mute);text-decoration:none;padding:7px 13px;border-radius:999px;white-space:nowrap}
+  nav.jump a:hover{color:var(--purple);background:var(--lav)}
+  nav.jump a.active{color:#fff;background:var(--purple)}
+
+  section{padding:48px 0;scroll-margin-top:62px}
+  section + section{border-top:1px solid var(--line)}
+  .kicker{font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--peri);margin:0 0 10px}
+  h2.sec{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,4.2vw,2rem);line-height:1.12;letter-spacing:-.01em;color:var(--purple);margin:0 0 6px}
+  .sec-sub{color:var(--mute);margin:0 0 26px;font-size:1rem}
+  .abstract p{font-family:var(--serif);font-size:1.17rem;line-height:1.66;color:#2A2735;margin:0}
+
+  /* ---------- conversation guide ---------- */
+  .seg{border:1px solid var(--line);border-left:3px solid var(--peri);border-radius:12px;background:#fff;padding:22px 22px 18px;margin:0 0 16px}
+  .seg .num{font-family:var(--serif);font-size:.85rem;color:var(--peri);font-weight:600;letter-spacing:.04em}
+  .seg h3{font-family:var(--sans);font-weight:700;font-size:1.12rem;color:var(--indigo);margin:3px 0 12px;line-height:1.25}
+  .ask{background:var(--lav);border-radius:9px;padding:11px 14px;margin:0 0 14px;font-size:.98rem}
+  .ask span{display:block;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:3px}
+  .ask em{font-family:var(--serif);font-style:italic;color:#34305a;font-size:1.05rem}
+  .seg ul{margin:0 0 14px;padding:0;list-style:none}
+  .seg li{position:relative;padding:0 0 9px 20px;font-size:.98rem;line-height:1.5}
+  .seg li::before{content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--peri)}
+  .seg li b{color:var(--purple)}
+  .spark{font-family:var(--serif);font-style:italic;font-size:1.08rem;line-height:1.45;color:var(--indigo);border-top:1px dashed var(--line);padding-top:13px;margin:0}
+  .spark::before{content:"\201C";color:var(--peri);font-weight:600}
+  .spark::after{content:"\201D";color:var(--peri);font-weight:600}
+
+  /* ---------- founder moves ---------- */
+  .band{background:var(--indigo);color:#fff}
+  .band h2.sec{color:#fff}
+  .band .kicker{color:var(--peri-light)}
+  .band .sec-sub{color:#CFCBEA}
+  .move{display:grid;grid-template-columns:54px 1fr;gap:0;border-radius:12px;overflow:hidden;margin:0 0 14px;background:rgba(255,255,255,.04);border:1px solid rgba(183,181,228,.18)}
+  .move .mn{background:var(--peri);color:var(--indigo);font-family:var(--serif);font-weight:600;font-size:1.7rem;display:flex;align-items:center;justify-content:center}
+  .move .mb{padding:16px 18px}
+  .move h4{font-family:var(--sans);font-weight:700;font-size:1.04rem;color:#fff;margin:0 0 7px;line-height:1.25}
+  .move p{margin:0 0 9px;font-size:.96rem;color:#E4E3F2;line-height:1.5}
+  .move .eg{font-size:.88rem;color:#BFBCE0;border-left:2px solid var(--peri);padding-left:11px}
+  .move .eg b{color:var(--peri-light);font-weight:600}
+  .move .eg .t{color:#fff;font-weight:600;white-space:nowrap}
+  .payoff{background:var(--lav);border-radius:12px;padding:20px 22px;margin:22px 0 0}
+  .band .payoff{background:rgba(183,181,228,.12)}
+  .payoff .lab{font-weight:700;color:var(--peri-light);font-size:.95rem;margin:0 0 8px}
+  .payoff .q{font-family:var(--serif);font-style:italic;font-size:1.14rem;line-height:1.5;color:#fff;margin:0}
+  .caveat{font-size:.86rem;color:#BFBCE0;margin:16px 0 0;line-height:1.5}
+  .caveat b{color:var(--peri-light)}
+
+  /* ---------- investor checklist ---------- */
+  .q7{display:grid;gap:14px}
+  .card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:18px 20px}
+  .card .qn{font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--peri);margin:0 0 5px}
+  .card .ql{font-family:var(--sans);font-weight:700;font-size:1.04rem;color:var(--indigo);margin:0 0 12px;line-height:1.3}
+  .flags{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .flag{border-radius:9px;padding:11px 13px;font-size:.92rem;line-height:1.4}
+  .flag .h{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+  .flag.go{background:var(--green-bg);color:#145c3e}
+  .flag.go .h{color:var(--green)}
+  .flag.no{background:var(--red-bg);color:#8f2b38}
+  .flag.no .h{color:var(--red)}
+  .bonus{margin:18px 0 0;padding:16px 18px;border:1px dashed var(--peri);border-radius:12px;background:var(--lav-2);font-size:.96rem}
+  .bonus b{color:var(--purple)}
+  .thirty{margin:14px 0 0;padding:16px 18px;border-radius:12px;background:var(--lav);border-left:3px solid var(--peri);font-size:.96rem}
+  .thirty b{color:var(--purple)}
+  .thirty em{font-family:var(--serif);font-style:italic}
+
+  /* ---------- archetypes ---------- */
+  .arch-grid{display:grid;grid-template-columns:1fr;gap:14px}
+  .arch{border:1px solid var(--line);border-radius:12px;background:#fff;padding:18px 20px;border-top:3px solid var(--peri)}
+  .arch .top{display:flex;align-items:baseline;gap:9px;margin:0 0 3px;flex-wrap:wrap}
+  .arch .id{font-family:var(--serif);font-weight:600;font-size:1.02rem;color:var(--peri)}
+  .arch h4{font-family:var(--sans);font-weight:700;font-size:1.06rem;color:var(--indigo);margin:0;line-height:1.2}
+  .arch .sub{font-size:.8rem;color:var(--mute);font-weight:500;margin:0 0 11px}
+  .arch p{margin:0 0 12px;font-size:.95rem;color:#33303d;line-height:1.5}
+  .arch p .eg{color:var(--mute)}
+  .gov{font-size:.86rem;color:var(--mute);margin:11px 0 0;line-height:1.46}
+  .gov b{color:var(--purple);font-weight:600}
+  .rk{display:inline-block;font-size:.76rem;font-weight:600;letter-spacing:.02em;border-radius:999px;padding:4px 11px;white-space:nowrap}
+  .rk.hi{background:var(--red-bg);color:var(--red)}
+  .rk.md{background:var(--amber-bg);color:var(--amber)}
+  .rk.lo{background:var(--green-bg);color:var(--green)}
+  .rk.xc{background:var(--lav);color:var(--purple)}
+  .arch .foc{font-size:.88rem;color:var(--mute);margin:0}
+  .arch .foc b{color:var(--purple);font-weight:600}
+  .evo{margin:20px 0 0;padding:18px 20px;border-radius:12px;background:var(--lav-2);border-left:3px solid var(--peri)}
+  .evo .lab{font-weight:700;color:var(--purple);font-size:.95rem;margin:0 0 10px}
+  .evo ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+  .evo li{font-size:.92rem;color:#33303d;line-height:1.45;padding-left:20px;position:relative}
+  .evo li::before{content:"\2192";position:absolute;left:0;top:0;color:var(--peri);font-weight:700}
+  .evo li b{color:var(--indigo)}
+  @media (min-width:720px){ .arch-grid{grid-template-columns:1fr 1fr} }
+
+  /* ---------- faq ---------- */
+  details.faq{border:1px solid var(--line);border-radius:10px;background:#fff;margin:0 0 10px;overflow:hidden}
+  details.faq summary{cursor:pointer;list-style:none;padding:16px 46px 16px 18px;font-weight:600;color:var(--indigo);position:relative;font-size:1rem}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:1.4rem;font-weight:400;color:var(--peri);line-height:1}
+  details.faq[open] summary::after{content:"\2013"}
+  details.faq summary:focus-visible{outline:2px solid var(--purple);outline-offset:-2px}
+  details.faq .a{padding:0 18px 17px;color:#33303d;font-size:.97rem;line-height:1.55}
+
+  /* ---------- go deeper / footer ---------- */
+  .deeper-grid{display:grid;gap:14px;grid-template-columns:1fr}
+  @media (min-width:760px){ .deeper-grid{grid-template-columns:repeat(3,1fr)} }
+  .deeper .card{display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:border-color .15s ease}
+  .deeper .card p{flex:1 1 auto}
+  .deeper .card:hover{border-color:var(--peri)}
+  .deeper .card h4{margin:0 0 6px;color:var(--purple);font-size:1.05rem;font-weight:700}
+  .deeper .card p{margin:0;color:var(--mute);font-size:.95rem}
+  .deeper .card .go{display:inline-block;margin-top:10px;font-size:.9rem;font-weight:600;color:var(--purple)}
+  footer{background:var(--indigo);color:#CFCBEA;padding:34px 0 40px;font-size:.9rem}
+  footer .wrap{display:flex;flex-direction:column;gap:14px}
+  footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+  footer .brand{font-family:var(--serif);font-size:1.15rem;color:#fff}
+  footer .links{display:flex;flex-wrap:wrap;gap:8px 18px}
+  footer .fine{color:#8681ab;font-size:.82rem;border-top:1px solid rgba(255,255,255,.12);padding-top:14px;margin-top:4px}
+  .tm{font-size:.82rem;color:var(--mute)}
+
+  :focus-visible{outline:2px solid var(--purple);outline-offset:2px;border-radius:3px}
+
+  @media (min-width:720px){
+    .move .mn{font-size:2rem}
+  }
+  @media (max-width:540px){
+    .flags{grid-template-columns:1fr}
+    .move .eg .t{display:inline-block;margin-top:4px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Fireside Chat &nbsp;&middot;&nbsp; Session Companion</p>
+    <h1>Before Your&nbsp;MVP</h1>
+    <p class="lede">Right-Sizing Governance for AI-Native Founders and Investor Diligence</p>
+    <div class="meta">
+      <span class="pill">Conversation + Q&amp;A</span>
+      <span class="pill">For <strong>founders</strong> &amp; <strong>investors</strong></span>
+      <span class="pill">Agentic&nbsp;AI governance</span>
+    </div>
+    <p class="host">Hosted by <b>Brian M. Green</b> &middot; Chief AI Officer &amp; Founder, Health-Vision.AI</p>
+    <p class="host" style="margin-top:6px"><span style="color:#A7A2D8">Founders Alley Philadelphia: Our City in Motion &nbsp;&middot;&nbsp; Oct 20, 2026</span></p>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Section navigation">
+  <div class="inner">
+    <a href="#abstract">Overview</a>
+    <a href="#guide">Conversation Guide</a>
+    <a href="#founders">Founder Four Moves</a>
+    <a href="#investors">Investor Checklist</a>
+    <a href="#archetypes">Archetypes</a>
+    <a href="#faq">FAQ</a>
+    <a href="#deeper">Go Deeper</a>
+  </div>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="abstract">
+  <div class="wrap">
+    <p class="kicker">What this session is about</p>
+    <h2 class="sec">Governance you can right-size before you ship</h2>
+    <div class="abstract">
+      <p>Agentic AI has changed what &ldquo;building fast&rdquo; means for many start-ups. Systems that act, call external tools, and make decisions on their own introduce a category of risk that traditional diligence and traditional engineering both miss. That risk is already being priced into valuations, deal terms, and enterprise sales, whether or not anyone says the word &ldquo;governance.&rdquo; This fireside chat unpacks what founders and investors actually need to know before the MVP: why a runtime &ldquo;harness&rdquo; is necessary but not sufficient, and what governance-as-infrastructure looks like when it&rsquo;s proportional to risk. Whichever side of the deal table you&rsquo;re on, an AI-native startup calls for a different kind of evaluation than pre-AI investments did, beginning with a clear view of what could go wrong.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONVERSATION GUIDE -->
+<section id="guide">
+  <div class="wrap">
+    <p class="kicker">Follow along</p>
+    <h2 class="sec">The Conversation Guide</h2>
+    <p class="sec-sub">The arc of today&rsquo;s chat, with the question anchoring each turn and the line to remember.</p>
+
+    <div class="seg">
+      <div class="num">01 &middot; The Hook</div>
+      <h3>Investors are already pricing your AI governance</h3>
+      <div class="ask"><span>The story</span><em>&ldquo;If your agent does the wrong thing at 2 a.m. &mdash; who&rsquo;s accountable, and who can stop it?&rdquo;</em></div>
+      <ul>
+        <li>A capable agent that could send emails, change records, and trigger refunds on its own &mdash; and a founder with no crisp answer in diligence.</li>
+        <li>The deal still closed: lower valuation, milestone gate. The capability was never the problem.</li>
+        <li><b>The premise:</b> investors evaluate AI governance whether or not they use the word.</li>
+      </ul>
+      <p class="spark">The question isn&rsquo;t whether you use AI. It&rsquo;s whether you can explain how it behaves once it&rsquo;s deployed.</p>
+    </div>
+
+    <div class="seg">
+      <div class="num">02 &middot; Harness vs. Infrastructure</div>
+      <h3>Why a runtime &ldquo;harness&rdquo; is necessary but not sufficient</h3>
+      <div class="ask"><span>Anchor question</span><em>Everyone&rsquo;s adding &ldquo;guardrails.&rdquo; Isn&rsquo;t that enough?</em></div>
+      <ul>
+        <li><b>What a harness is:</b> a wrapper that constrains one agent at runtime &mdash; filtering, tool-call gating, declines. Necessary.</li>
+        <li><b>Where it stops:</b> it can&rsquo;t tell you which policy was in force, who approved it, whether runtime drifted, or prove any of it to a third party.</li>
+        <li><b>Governance as infrastructure:</b> a reusable control plane that decides what&rsquo;s allowed, records what happened, and proves it &mdash; tiered to the risk of the use case.</li>
+      </ul>
+      <p class="spark">A harness asks the agent to behave. Infrastructure proves whether it did.</p>
+    </div>
+
+    <div class="seg">
+      <div class="num">03 &middot; For Founders</div>
+      <h3>Governance before the MVP, right-sized to your stage</h3>
+      <div class="ask"><span>Anchor question</span><em>We&rsquo;re pre-MVP and moving fast. Isn&rsquo;t governance premature?</em></div>
+      <ul>
+        <li><b>Proportional, not premature:</b> name risks, assign an owner, define a stop. Hours now versus a retrofit under deal pressure later.</li>
+        <li><b>When the debt bites:</b> a buyer asks about controls; an incident with no owner; diligence surfaces an unowned risk.</li>
+        <li><b>It&rsquo;s credibility, not rules:</b> investors aren&rsquo;t asking &ldquo;is it safe?&rdquo; &mdash; they&rsquo;re asking &ldquo;does this founder understand what could go wrong?&rdquo;</li>
+      </ul>
+      <p class="spark">You don&rsquo;t need enterprise controls at pre-seed. You need to be deliberate, and able to say so in one sentence.</p>
+    </div>
+
+    <div class="seg">
+      <div class="num">04 &middot; For Investors</div>
+      <h3>A diligence lens for AI-native bets</h3>
+      <div class="ask"><span>Anchor question</span><em>As an investor, what should I be asking &mdash; and what&rsquo;s a red flag?</em></div>
+      <ul>
+        <li><b>Governance is value creation:</b> it shows up in enterprise-sales velocity, scalability, regulatory resilience, and exit readiness.</li>
+        <li><b>Ask behavior, not features:</b> what can it do without a human, what can it reach at runtime, who&rsquo;s accountable when it&rsquo;s wrong?</li>
+        <li><b>The tell is silence:</b> a low readiness band is fine privately; no answer reads as &ldquo;hasn&rsquo;t thought about it.&rdquo;</li>
+      </ul>
+      <p class="spark">You don&rsquo;t lose deals for lacking governance. You lose leverage when investors aren&rsquo;t confident you understand your risk.</p>
+    </div>
+
+    <div class="seg">
+      <div class="num">05 &middot; Close</div>
+      <h3>The one idea to walk out with</h3>
+      <p class="spark" style="border-top:none;padding-top:0">Good AI governance at early stage isn&rsquo;t about rules. It&rsquo;s about credibility &mdash; being deliberate, and able to prove it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER FOUR MOVES -->
+<section id="founders" class="band">
+  <div class="wrap">
+    <p class="kicker">Founder takeaway</p>
+    <h2 class="sec">The Four Moves &mdash; the afternoon that de-risks your raise</h2>
+    <p class="sec-sub">No hire. No tooling spend. No slowdown. Roughly half a day &mdash; and it closes the exact gaps investors price into a term sheet.</p>
+
+    <div class="move">
+      <div class="mn">1</div>
+      <div class="mb">
+        <h4>Name your one highest-impact AI system &mdash; and what it can do</h4>
+        <p>Not everything. The single agent or feature that would hurt most if it misbehaved. Write down, in plain words, what it&rsquo;s allowed to do on its own: send, write, delete, pay, message a customer, change a record.</p>
+        <p class="eg"><b>Looks like:</b> &ldquo;Our support agent can issue refunds up to $200 and email customers without review.&rdquo; &nbsp;<span class="t">&#9201; 20 min</span></p>
+      </div>
+    </div>
+
+    <div class="move">
+      <div class="mn">2</div>
+      <div class="mb">
+        <h4>Write the top 3 ways it could go wrong</h4>
+        <p>Three failure modes, ranked by damage &mdash; not likelihood. You don&rsquo;t have to fix them yet. Naming them is the signal investors look for.</p>
+        <p class="eg"><b>Looks like:</b> 1) refunds the wrong customer; 2) leaks another user&rsquo;s data in a reply; 3) loops and burns the API budget. &nbsp;<span class="t">&#9201; 30 min</span></p>
+      </div>
+    </div>
+
+    <div class="move">
+      <div class="mn">3</div>
+      <div class="mb">
+        <h4>Name one accountable owner</h4>
+        <p>One human whose name is attached when it misbehaves at 2 a.m. Not &ldquo;the team.&rdquo; Unowned oversight is the most common red flag in diligence &mdash; and it costs nothing to fix.</p>
+        <p class="eg"><b>Looks like:</b> &ldquo;Priya owns the support agent; escalations go to her.&rdquo; &nbsp;<span class="t">&#9201; 5 min</span></p>
+      </div>
+    </div>
+
+    <div class="move">
+      <div class="mn">4</div>
+      <div class="mb">
+        <h4>Build and test a stop</h4>
+        <p>A way to pause or kill that system fast &mdash; a feature flag, a disable toggle, a revoked key &mdash; then actually flip it once to confirm it works and the owner knows it&rsquo;s their job. An untested kill-switch is one you don&rsquo;t have.</p>
+        <p class="eg"><b>Looks like:</b> flipped the enable flag in staging; halts in &lt;10s; Priya has the access. &nbsp;<span class="t">&#9201; 1&ndash;2 hrs</span></p>
+      </div>
+    </div>
+
+    <div class="payoff">
+      <p class="lab">Do these four and you can say the one sentence most founders can&rsquo;t:</p>
+      <p class="q">&ldquo;Our AI does X. Here are its top three risks. [Owner] is accountable for it. And we can stop it in seconds.&rdquo;</p>
+      <p class="caveat"><b>Honest caveat:</b> these four moves buy you credibility and a floor &mdash; not full governance. They&rsquo;re the pre-MVP starting line. The deeper control-plane infrastructure is what you grow into as autonomy and stakes rise.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTOR CHECKLIST -->
+<section id="investors">
+  <div class="wide">
+    <p class="kicker">Investor toolkit</p>
+    <h2 class="sec">The AI-Native Diligence Checklist</h2>
+    <p class="sec-sub">Seven questions to read agentic-AI risk &mdash; and tell credibility from hand-waving. Based on PGI&trade;, Proportional Governance Infrastructure.</p>
+
+    <div class="q7">
+      <div class="card">
+        <p class="qn">01 &middot; Risk awareness</p>
+        <p class="ql">Name the top ways your AI could cause harm &mdash; now and at scale.</p>
+        <div class="flags">
+          <div class="flag go"><span class="h">&#10003; Green flag</span>Specific, prioritized, scale-aware risks</div>
+          <div class="flag no"><span class="h">&#10007; Red flag</span>&ldquo;It&rsquo;s safe&rdquo; / vague generalities</div>
+        </div>
+      </div>
+      <div class="card">
+        <p class="qn">02 &middot; Reasonableness of controls</p>
+        <p class="ql">Are your controls matched to the system&rsquo;s impact?</p>
+        <div class="flags">
+          <div class="flag go"><span class="h">&#10003; Green flag</span>Controls visibly scale with impact</div>
+          <div class="flag no"><span class="h">&#10007; Red flag</span>Aspirational, or largely absent</div>
+        </div>
+      </div>
+      <div class="card">
+        <p class="qn">03 &middot; Proportionality</p>
+        <p class="ql">Does governance scale with risk, or is it uniform and reactive?</p>
+        <div class="flags">
+          <div class="flag go"><span class="h">&#10003; Green flag</span>Tiered to use-case and action risk</div>
+          <div class="flag no"><span class="h">&#10007; Red flag</span>One-size, or bolted on after incidents</div>
+        </div>
+      </div>
+      <div class="card">
+        <p class="qn">04 &middot; Accountability</p>
+        <p class="ql">If the AI acts wrongly tomorrow, who&rsquo;s accountable and who can stop it?</p>
+        <div class="flags">
+          <div class="flag go"><span class="h">&#10003; Green flag</span>A named owner + a tested kill-switch</div>
+          <div class="flag no"><span class="h">&#10007; Red flag</span>No owner; can&rsquo;t quickly stop it</div>
+        </div>
+      </div>
+      <div class="card">
+        <p class="qn">05 &middot; Explainability</p>
+        <p class="ql">Can you reconstruct why the AI made a given decision?</p>
+        <div class="flags">
+          <div class="flag go"><span class="h">&#10003; Green flag</span>Decision logging; can replay it</div>
+          <div class="flag no"><span class="h">&#10007; Red flag</span>Black box; nothing logged</div>
+        </div>
+      </div>
+      <div class="card">
+        <p class="qn">06 &middot; Incident readiness</p>
+        <p class="ql">Are you prepared for AI failures, not just data breaches?</p>
+        <div class="flags">
+          <div class="flag go"><span class="h">&#10003; Green flag</span>Escalation triggers; has run a tabletop</div>
+          <div class="flag no"><span class="h">&#10007; Red flag</span>Only breach / security is considered</div>
+        </div>
+      </div>
+      <div class="card">
+        <p class="qn">07 &middot; Governance as infrastructure</p>
+        <p class="ql">Is governance operational, or dependent on good intentions?</p>
+        <div class="flags">
+          <div class="flag go"><span class="h">&#10003; Green flag</span>Enforced in-path, versioned, auditable</div>
+          <div class="flag no"><span class="h">&#10007; Red flag</span>A policy doc nobody enforces</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus"><b>Bonus &mdash; provability:</b> &ldquo;Can you prove which policy was in force, to a third party?&rdquo; A tamper-evident, verifiable audit trail is the strongest signal; self-attested logs are the weakest.</div>
+    <div class="thirty"><b>The 30-second version:</b> ask the founder for their one-sentence governance narrative &mdash; <em>&ldquo;Today our AI influences ___, so our controls focus on ___; as autonomy grows we&rsquo;ll ___.&rdquo;</em> The quality of that sentence tells you most of what you need to know.</div>
+  </div>
+</section>
+
+<!-- ARCHETYPES -->
+<section id="archetypes">
+  <div class="wide">
+    <p class="kicker">Make it practical</p>
+    <h2 class="sec">Six Agentic AI Risk Archetypes</h2>
+    <p class="sec-sub">Risk is easier to reason about when you can name the <em>shape</em> of it. These six archetypes come from the Agentic Village <em>Risk-Aligned AI Governance as Infrastructure</em> work, built across higher-risk, regulated sectors &mdash; healthcare (HIPAA, FDA), finance (SOX, PCI-DSS, SEC), safety-critical systems, children&rsquo;s data (COPPA), and other regulated domains. Most systems match one primary archetype (often 60&ndash;90% confidence); some span several and need governance from each. Naming yours points effort at the risks that actually matter, and anticipates how they shift as the system matures.</p>
+
+    <div class="arch-grid">
+      <div class="arch">
+        <div class="top"><span class="id">1</span><h4>High-Stakes Advisory</h4></div>
+        <p class="sub">Significant human impact &middot; Strong human oversight</p>
+        <p>AI acts as decision support; a qualified human reviews every recommendation before any action is taken. High consequence if wrong, but human judgment is the final authority. <span class="eg">Across sectors: clinical decision support, credit and underwriting recommendations, trade ideas a human approves, operator advisories.</span></p>
+        <span class="rk md">Reversible with oversight</span>
+        <p class="gov"><b>Governance priority:</b> decision-quality monitoring, acceptance-rate tracking, override-pattern analysis, training on AI limitations.</p>
+      </div>
+
+      <div class="arch">
+        <div class="top"><span class="id">2</span><h4>Autonomous High-Risk</h4></div>
+        <p class="sub">Direct high-impact actions &middot; No human intervention</p>
+        <p>The system executes decisions independently at machine speed, with no human review before action. Those actions are difficult or impossible to reverse. <span class="eg">Across sectors: automated trade execution, autonomous payments or transfers, medication dispensing, real-time control actions.</span></p>
+        <span class="rk hi">Highest risk tier</span>
+        <p class="gov"><b>Governance priority:</b> kill switches, cryptographic audit trails, adversarial testing, real-time anomaly monitoring, mandatory override.</p>
+      </div>
+
+      <div class="arch">
+        <div class="top"><span class="id">3</span><h4>Low-Impact Experimental</h4></div>
+        <p class="sub">Minimal consequences &middot; Internal use &middot; Small teams</p>
+        <p>Used internally by small teams. Recommendations are easily ignored or reversed. No regulated data, no customer-facing interface, no critical decisions &mdash; primarily productivity or administrative tools. <span class="eg">Across sectors: internal copilots, drafting assistants, analytics prototypes.</span></p>
+        <span class="rk lo">Easily reversible &middot; proportional</span>
+        <p class="gov"><b>Governance priority:</b> basic logging, lightweight documentation, a single approval checkpoint, data-classification review.</p>
+      </div>
+
+      <div class="arch">
+        <div class="top"><span class="id">4</span><h4>Customer-Facing Moderate</h4></div>
+        <p class="sub">External users &middot; Semi-autonomous &middot; Reversible</p>
+        <p>Customers or end users interact with the system directly, and it can escalate to a human when needed. Actions are generally reversible but create friction and reputational risk &mdash; brand and trust are on the line alongside the core risk. <span class="eg">Across sectors: customer-support agents, onboarding and account assistants, self-service concierges.</span></p>
+        <span class="rk md">Reputational risk</span>
+        <p class="gov"><b>Governance priority:</b> escalation pathways, user-notification protocols, performance monitoring, brand protection, accessibility standards.</p>
+      </div>
+
+      <div class="arch">
+        <div class="top"><span class="id">5</span><h4>Regulated Data Processor</h4></div>
+        <p class="sub">Regulated data &middot; HIPAA &middot; PCI-DSS &middot; SEC &middot; COPPA</p>
+        <p>Handles regulated or sensitive data &mdash; health information, payment-card and financial records, children&rsquo;s data, or other PII. Risk stems primarily from data exposure, not decision impact. HIPAA, FDA, SOX, PCI-DSS, SEC, COPPA, the EU AI Act, and state data laws apply &mdash; even low-stakes AI becomes high-risk when it processes regulated data.</p>
+        <span class="rk hi">Data exposure &middot; compliance burden</span>
+        <p class="gov"><b>Governance priority:</b> field-level access logging, minimum-necessary data use, data-processing agreements, breach procedures, regulatory risk analysis (HIPAA / PCI / SEC / COPPA as applicable).</p>
+      </div>
+
+      <div class="arch">
+        <div class="top"><span class="id">6</span><h4>Development Risk Focus</h4></div>
+        <p class="sub">LLM-assisted code generation &middot; Supply-chain risk</p>
+        <p>A perpendicular dimension that can overlay any archetype: over 30% of the codebase generated or assisted by LLMs, including safety-critical logic. Risk comes from the development process, not only the deployed system &mdash; AI-generated pricing engines, risk models, control algorithms, or compliance rules inherit the risk of that assistance.</p>
+        <span class="rk xc">Cross-cutting</span>
+        <p class="gov"><b>Governance priority:</b> model-selection policies, mandatory review of AI-generated logic, enhanced testing, prompt versioning, security review.</p>
+      </div>
+    </div>
+
+    <div class="evo">
+      <p class="lab">How risk evolves as a system matures</p>
+      <ul>
+        <li><b>Experimental &rarr; Customer-Facing:</b> pilot to production &mdash; reputational and CX risk emerges.</li>
+        <li><b>High-Stakes Advisory &rarr; Autonomous High-Risk:</b> removing human review &mdash; the highest-risk transition.</li>
+        <li><b>Experimental &rarr; Regulated Data Processor:</b> adding regulated-data scope (health, payment, children&rsquo;s data) transforms governance requirements entirely.</li>
+        <li><b>Any archetype &rarr; Development Risk Focus:</b> increasing LLM-assisted development adds a perpendicular risk dimension.</li>
+      </ul>
+    </div>
+    <p style="margin:18px 0 0;font-size:.96rem"><a href="https://agentic-village-health-governance.vercel.app/" target="_blank" rel="noopener" style="font-weight:600">Explore the full risk catalogue &rarr;</a> &nbsp;<span style="color:var(--mute)">each archetype&rsquo;s linked risks and infrastructure controls.</span></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <p class="kicker">Asked &amp; answered</p>
+    <h2 class="sec">FAQ</h2>
+    <p class="sec-sub">The questions that come up most &mdash; from both sides of the table.</p>
+
+    <details class="faq"><summary>Isn&rsquo;t a harness / guardrails enough?</summary><div class="a">It&rsquo;s a necessary layer, not the whole system. A harness enforces at runtime; it can&rsquo;t tell you which policy was in force, who approved it, or prove it to an auditor. That&rsquo;s what the control plane adds.</div></details>
+    <details class="faq"><summary>We&rsquo;re pre-seed. Is governance premature?</summary><div class="a">No &mdash; proportional means right-sized. The four cheap moves take hours, and the cost of fixing a gap only grows with every deployment.</div></details>
+    <details class="faq"><summary>Won&rsquo;t this slow our product velocity?</summary><div class="a">Usually the opposite. Clear boundaries and escalation paths reduce fire drills and speed up answers when a customer or investor asks.</div></details>
+    <details class="faq"><summary>We already do security / SOC 2. Same thing?</summary><div class="a">Different failure mode. Security covers breaches; AI governance covers behavior &mdash; what the AI does on its own and who&rsquo;s accountable when it&rsquo;s wrong.</div></details>
+    <details class="faq"><summary>If my readiness is low, will it scare investors?</summary><div class="a">A low band held privately is fine; low awareness shown publicly is the risk. Knowing your gaps and having a plan is itself a positive signal.</div></details>
+    <details class="faq"><summary>How do I talk about this without overpromising?</summary><div class="a">Use your narrative sentence and avoid implying autonomy or accuracy you can&rsquo;t deliver. Claims that outrun reality become their own risk.</div></details>
+    <details class="faq"><summary>Isn&rsquo;t open-sourcing the approach giving away the moat?</summary><div class="a">The code isn&rsquo;t the moat &mdash; the expertise to operate it in regulated domains is. Openness builds trust and sets the category standard.</div></details>
+  </div>
+</section>
+
+<!-- GO DEEPER -->
+<section id="deeper" class="deeper">
+  <div class="wide">
+    <p class="kicker">Go deeper</p>
+    <h2 class="sec">Agentic Village &amp; related resources</h2>
+    <p class="sec-sub">The community and tools behind this work &mdash; Risk-Aligned AI Governance as Infrastructure.</p>
+    <div class="deeper-grid">
+      <a class="card" href="https://agenticvillage.net/" target="_blank" rel="noopener">
+        <h4>AgenticVillage.net</h4>
+        <p>The community behind this work: training, tools, coaching, and peer cohorts for right-sizing AI governance across regulated, higher-risk sectors.</p>
+        <span class="go">Visit the community &rarr;</span>
+      </a>
+      <a class="card" href="https://agentic-village-health-governance.vercel.app/" target="_blank" rel="noopener">
+        <h4>Risk Archetypes &amp; Catalogue</h4>
+        <p>Explore all six archetypes with their linked risks and infrastructure controls, plus the self-assessment that maps a system to its dominant risk profile.</p>
+        <span class="go">Open the catalogue &rarr;</span>
+      </a>
+      <a class="card" href="https://ethics-embedded-ai-governance-desig.vercel.app/" target="_blank" rel="noopener">
+        <h4>Design Checklist &amp; Vocabulary</h4>
+        <p>A hands-on, 39-point design checklist and shared vocabulary for building governance into AI systems &mdash; a companion from a health-professions-education plenary.</p>
+        <span class="go">Open the checklist &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">Health-Vision.AI</div>
+    <div class="links">
+      <a href="mailto:Brian@Health-Vision.AI">Brian@Health-Vision.AI</a>
+      <a href="https://health-vision.ai" target="_blank" rel="noopener">health-vision.ai</a>
+      <a href="https://agenticvillage.net" target="_blank" rel="noopener">agenticvillage.net</a>
+    </div>
+    <div class="fine">&copy; 2026 Health-Vision.AI, LLC. &nbsp; PGI&trade; &mdash; Proportional Governance Infrastructure. &nbsp; Session companion for &ldquo;Before Your MVP: Right-Sizing Governance for AI-Native Founders and Investor Diligence.&rdquo;</div>
+  </div>
+</footer>
+
+<script>
+  // Active section highlighting in the sticky nav
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('nav.jump a'));
+    var map = {};
+    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var sections = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+    if(!('IntersectionObserver' in window)) return;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active'); });
+          var a = map[e.target.id];
+          if(a) a.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ obs.observe(s); });
+  })();
+</script>
+</body>
+</html>
